@@ -1,0 +1,60 @@
+@model User
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Resultados del Usuario</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .btn-dw {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            bottom: 10px;
+        }
+    </style>
+</head>
+
+<h1>Resultados del Usuario</h1>
+    <div class="container">
+        @if ((bool)ViewData["IsSuccessful"])
+        {
+            <h2 style="text-align:center">Successfully registered</h2>
+        }
+        else
+        {
+            <h2 style="text-align:center">Registration failed</h2>
+        }
+        <div class="btn-dw">
+            <form method="get" asp-controller="Home" asp-action="Index">
+                <button type="submit">Index</button>
+            </form>
+            <form method="get" asp-controller="Home" asp-action="FormularioUsuario">
+                <button type="submit">Go Back</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
